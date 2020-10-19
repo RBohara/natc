@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %} Gallery {% endblock %}
+{% block content %}
+<h1 class="text-lg md:text-4xl text-center mb-5">The pictures of some of the events</h1>
+<div class="bg-gray-500 p-5">
+    <div class="md:grid md:grid-cols-2 gap-2">
+        {% if gallery_files %}
+        {% for gallery_file in gallery_files %}
+        <div class="">
+            <!-- <h2 class="text-center">{{ event_file.event_name }}</h2>  -->
+            <div class="flex justify-between">
+
+                <img src="{{ gallery_file.photo.url }}" class="pb-2 md:pb-0">
+
+                <!-- <div class="w-full"> -->
+                <!-- <video width="320" height="240" controls>
+                    <source src="" type="video/mp4">
+                </video> -->
+                <!-- </div> -->
+            </div>
+        </div>
+        {% endfor %}
+        {% else %}
+        <p>No image or video to show</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock content %}

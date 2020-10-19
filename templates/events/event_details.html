@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %} Events {% endblock %}
+{% block content %}
+<div class="text-center mx-auto text-xl md:text-2xl">
+    {% if event %}
+    <h2 class="text-3xl">Event details</h2>
+    <p>Event Name: {{event.event_title}}</p>
+    <p>Venue: {{event.venue}}</p>
+    <p>Organiser: {{event.organiser}}</p>
+    <p>Time: {{event.time}}</p>
+    <p>Description: {{event.description}}</p>
+    {% endif %}
+    <a class="bg-blue-600 inline-block text-white py-3 px-5 mt-5 rounded font-mono" href="{% url 'events' %}">Back to Events</a>
+</div>
+{% endblock content %}
