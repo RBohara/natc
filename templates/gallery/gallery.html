@@ -6,22 +6,12 @@
     <div class="md:grid md:grid-cols-2 gap-2">
         {% if gallery_files %}
         {% for gallery_file in gallery_files %}
-        <div class="">
-            <!-- <h2 class="text-center">{{ event_file.event_name }}</h2>  -->
-            <div class="flex justify-between">
-
-                <img src="{{ gallery_file.photo.url }}" class="pb-2 md:pb-0">
-
-                <!-- <div class="w-full"> -->
-                <!-- <video width="320" height="240" controls>
-                    <source src="" type="video/mp4">
-                </video> -->
-                <!-- </div> -->
-            </div>
-        </div>
+            <div class="flex justify-between"> 
+                <img src="{{ gallery_file.photo.url }}" class="pb-2 md:pb-0 h-full">
+            </div> 
         {% endfor %}
         {% else %}
-        <p>No image or video to show</p>
+            <p>No image or video to show</p>
         {% endif %}
     </div>
 </div>
