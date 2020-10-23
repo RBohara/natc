@@ -7,7 +7,7 @@
         {% if gallery_files %}
         {% for gallery_file in gallery_files %}
             <div class="flex justify-between"> 
-                <img src="{{ gallery_file.photo.url }}" class="pb-2 md:pb-0 h-full">
+                <img src="{{ gallery_file.photo.url }}" class="pb-2 md:pb-0">
             </div> 
         {% endfor %}
         {% else %}
