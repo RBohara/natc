@@ -3,8 +3,9 @@
 {% block title %} Home {% endblock %}
 {% load static %}
 {% block content %}
+{% include 'partials/messages.html' %}
 
-<img src="{% static 'images/hero_image.jpg' %}" alt="NATC Motto">
+<img src="{% static 'images/hero_image.jpg' %}" class="rounded shadow-xl" alt="Banner Image">
 
     <div class="border border-gray-700 rounded shadow-lg mt-2">
 

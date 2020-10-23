@@ -11,6 +11,7 @@
 
     <p class="md:text-2xl mb-5">Please upload the filled form here. Thank you.</p>
     <form action="{% url 'upload_form' %}" method="POST" enctype="multipart/form-data">
+        {% include 'partials/messages.html' %}
         {% csrf_token %}
         <input type="file" name="membership_form" id="membership_form"><br>
         <button class="mt-5 p-2 pl-4 pr-4 bg-blue-700 hover:bg-blue-400 text-white hover:text-white rounded shadow-xl hover:shadow-2xl transition duration-500" type="submit">Upload</button>

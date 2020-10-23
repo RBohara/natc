@@ -15,16 +15,6 @@ def uploadMembershipForm(request):
         filled_form = request.FILES['membership_form']
         membership = Membership(title=title, filled_form=filled_form)
         membership.save()
-        # constructing an email
-        # subject = "Membership Form"
-        # text_content = "Please find the attached membership form"
-        # from_email = "rahul.bohara2016@gmail.com"
-        # to = "rahul.bohara2018@gmail.com"
-        # email = EmailMessage(subject, text_content, from_email, [to])
-        # email.attach_file(filled_form)
-        # email.send()
-        # messages.success(
-        #     "Your membership form has been submitted. The team will get back to you as soon as possible"
-        # )
 
+        messages.success(request, 'Thank you for applying for membership!!!')
     return redirect('/membership')
