@@ -149,6 +149,13 @@ MEDIA_URL = '/media/'
 # AWS_DEFAULT_ACL = None
 # DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
+# EMAIL Config
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = '587'
+EMAIL_HOST_USER = 'natcbnetest@gmail.com'
+EMAIL_HOST_PASSWORD = 'N3palitenn!s'
+EMAIL_USE_TLS = True
+
 try:
     from .local_settings import *
 except ImportError:
