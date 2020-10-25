@@ -18,16 +18,16 @@ def uploadMembershipForm(request):
         membership = Membership(title=title, filled_form=filled_form)
         membership.save()
 
-        subject = "Request for Membership"
-        sender = "natcbnetest@gmail.com"
-        message = "Please find the filled form for the membership"
+        # subject = "Request for Membership"
+        # sender = "natcbnetest@gmail.com"
+        # message = "Please find the filled form for the membership"
 
-        email = EmailMessage(subject, message, sender, [
-                             'rahul.bohara2016@gmail.com'])
-        email.attach(filled_form.name, filled_form.read(),
-                     filled_form.content_type)
+        # email = EmailMessage(subject, message, sender, [
+        #                      'rahul.bohara2016@gmail.com'])
+        # email.attach(filled_form.name, filled_form.read(),
+        #              filled_form.content_type)
 
-        email.send()
+        # email.send()
 
         messages.success(request, 'Thank you for applying for membership!!!')
     return redirect('/membership')
