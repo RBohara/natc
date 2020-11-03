@@ -55,12 +55,12 @@ def uploadMembershipForm(request):
 
         messages.success(request, 'Thank you for applying for membership!!!')
 
-        message = f"{first_name} {family_name} has applied for {membership_type} membership. \nThe bank transfer receipt number is {receipt}. Please login to admin panel for more details!!!"
-        send_mail(
-            "Application for membership",
-            message,
-            'natcbnetest@gmail.com',
-            ['natcbne@gmail.com', 'contact@natcbne.org']
-        )
+        # message = f"{first_name} {family_name} has applied for {membership_type} membership. \nThe bank transfer receipt number is {receipt}. Please login to admin panel for more details!!!"
+        # send_mail(
+        #     "Application for membership",
+        #     message,
+        #     'natcbnetest@gmail.com',
+        #     ['natcbne@gmail.com', 'contact@natcbne.org']
+        # )
 
     return redirect('/')
