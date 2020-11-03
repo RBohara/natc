@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
-{% block title %} Membership {% endblock %}
+{% block title %} Membership {% endblock title %}
 {% load static %}
 {% block content %}
 
-<div class="text-center">
+<!-- <div class="text-center">
     <h2 class="text-xl md:text-3xl">Please download the <a class="cursor-pointer text-blue-600"
-            href="../../static/doc/NATC Membership.docx">membership</a> form, fill the form and
+            href="{{ MEDIA_URL }} {{ i.doc.url }}">membership</a> form, fill the form and
         upload
         it. </h2>
 
@@ -14,7 +14,136 @@
         {% include 'partials/messages.html' %}
         {% csrf_token %}
         <input type="file" name="membership_form" id="membership_form"><br>
-        <button class="mt-5 p-2 pl-4 pr-4 bg-blue-700 hover:bg-blue-400 text-white hover:text-white rounded shadow-xl hover:shadow-2xl transition duration-500" type="submit">Upload</button>
+        <button
+            class="mt-5 p-2 pl-4 pr-4 bg-blue-700 hover:bg-blue-400 text-white hover:text-white rounded shadow-xl hover:shadow-2xl transition duration-500"
+            type="submit">Upload</button>
     </form>
-</div>
+</div> -->
+<div class="bg-gray-400">
+    <div class="m-auto p-10">
+      <form action="{% url 'upload_form' %}" method="POST">
+        {% csrf_token %}
+        <div class="mb-5 text-gray-600">
+          <h2 class="text-3xl  mb-5">Membership Application Form</h2>
+          <small class="text-xl mb-5 block">Field marked with <span class="text-blue-600">*</span> are required!!!</small>
+          <h3 class="text-2xl  mb-5">Applicant Personal Details</h3>
+      
+            <label for="name" class="mb-2 font-bold "><span class="text-blue-600">*</span> Family Name</label>
+            <input type="text" id="family-name" name="family_name" placeholder="Enter your family name"
+                class="shadow p-3 rounded mr-5" required/>
+           
+            <label for="name" class="mb-2 font-bold"><span class="text-blue-600">*</span> First Name</label>
+            <input type="text" id="first-name" name="first_name" placeholder="Enter your first name"
+                class="shadow p-3 rounded" required/>
+        
+            <h3 class="text-2xl mt-5 mb-5">Additional Member of the family included in the application</h3>
+            <div class="flex items-center mb-2">
+                <label for="name1" class="mb-2 font-bold mr-2">Name</label>
+                <input type="text" id="name1" name="name1" placeholder="Enter name"
+                class="shadow p-3 rounded mr-2" />
+
+                <label for="relation1" class="mb-2 font-bold mr-2">Relation</label>
+                <input type="text" id="relation1" name="relation1" placeholder="Enter relation"
+                class="shadow p-3 rounded" />
+            </div>
+
+            <div class="flex items-center">
+                <label for="name2" class="mb-2 mt-5 font-bold mr-2">Name</label>
+                <input type="text" id="name2" name="name2" placeholder="Enter name"
+                class="shadow p-3 inline-block rounded mr-2" />
+                
+                <label for="relation2" class="mb-2 mt-5 font-bold mr-2">Relation</label>
+                <input type="text" id="relation2" name="relation2" placeholder="Enter relation"
+                class="shadow p-3 rounded" />
+            </div>
+
+            <div class="flex items-center mt-2">
+                <label for="name3" class="mb-2 mt-5 font-bold mr-2">Name</label>
+                <input type="text" id="name3" name="name3" placeholder="Enter name"
+                class="shadow p-3 inline-block rounded mr-2" />
+
+                <label for="relation3" class="mb-2 mt-5 font-bold mr-2">Relation</label>
+                <input type="text" id="relation3" name="relation3" placeholder="Enter relation"
+                class="shadow p-3 rounded" />
+            </div>
+
+            <h3 class="text-2xl mt-5 mb-5">Residential Address</h3>
+            <div class="flex items-center mb-2">
+                <label for="unit" class="mb-2 font-bold mr-2"><span class="text-blue-600">*</span> Unit No</label>
+                <input type="text" id="unit" name="unit" placeholder="Enter unit no"
+                class="shadow p-3 rounded mr-2" required/>
+                
+                <label for="street_no" class="mb-2 font-bold mr-2"><span class="text-blue-600">*</span> Street No</label>
+                <input type="text" id="street-no" name="street_no" placeholder="Enter street no"
+                class="shadow p-3 rounded" required/>
+            </div>
+
+            <div class="flex items-center mt-5 mb-2">
+                <label for="street_name" class="mb-2 font-bold mr-2"><span class="text-blue-600">*</span> Street Name</label>
+                <input type="text" id="street-name" name="street_name" placeholder="Enter street name"
+                class="shadow p-3 rounded w-1/2" required />
+            </div>
+
+            <div class="flex items-center mb-2 mt-5">
+                <label for="suburb" class="mb-2 font-bold mr-2"><span class="text-blue-600">*</span> Suburb</label>
+                <input type="text" id="suburb" name="suburb" placeholder="Enter suburb"
+                class="shadow p-3 rounded mr-2" required />
+
+                <label for="state" class="mb-2 font-bold mr-2"><span class="text-blue-600">*</span> State</label>
+                <input type="text" id="state" name="state" placeholder="Enter state"
+                class="shadow p-3 rounded" required />
+            </div>
+
+            <div class="flex items-center mb-2 mt-5">
+                <label for="phone" class="mb-2 font-bold mr-2"><span class="text-blue-600">*</span> Phone</label>
+                <input type="text" id="phone" name="phone" placeholder="Enter phone"
+                class="shadow p-3 rounded mr-2" required />
+
+                <label for="street_no" class="mb-2 font-bold mr-2"><span class="text-blue-600">*</span> Email</label>
+                <input type="text" id="email" name="email" placeholder="Enter email"
+                class="shadow p-3 rounded" required />
+            </div>
+
+            <h3 class="text-2xl mt-5 mb-5"><span class="text-blue-600">*</span> Membership Type Applied for</h3>
+            <div class="flex items-center">
+                <label for="general" class="mr-2">General / Family ($30)</label>
+                <input type="radio" id="general" name="membership_type" value="General" class="mr-5">
+
+                <label for="active_player" class="mr-2">Active Player ($50)</label>
+                <input type="radio" id="active-player" name="membership_type" value="Active Player" class="mr-5">
+                
+                <label for="junior_player" class="mr-2">Junior Player (free)</label>
+                <input type="radio" id="junior-player" name="membership_type" value="Junior Player" class="mr-5">
+                
+                <label for="life_member" class="mr-2">Life Member ($200)</label>
+                <input type="radio" name="membership_type" id="life-member" value="Life Member">
+            </div>
+
+            <div class="mt-5">
+                <h3 class="text-2xl">Please make direct transfer of membership fee to </h3>
+                <ul class="text-xl">
+                    <li>Nepalese Australians Tennis Club Brisbane Inc.</li>
+                    <li>Commonwealth Bank</li>
+                    <li>Bsb: 064-185</li>
+                    <li>Account No: 1044 5008</li>
+                </ul>
+                <h3 class="text-2xl"><span class="text-red-600 font-bold">Note: </span>Please note down the bank transfer receipt number</h3>
+            </div>
+            
+            <h3 class="text-2xl mt-5 mb-5"><span class="text-blue-600">*</span> Evidence of Membership Fee Paid</h3>
+            <div class="flex items-center">
+                <label for="receipt" class="mr-2">Bank Transfer Receipt Number</label>
+                <input type="text" id="receipt" name="receipt" placeholder="Enter receipt number" class="shadow p-3 rounded" required />
+            </div>   
+
+        </div>
+        <div class="mb-5">
+          <button type="submit"
+            class="text-xl bg-blue-700 hover:bg-white text-white hover:text-blue-700 pt-2 pb-2 pl-8 pr-8 rounded shadow-xl hover:shadow-3xl transition duration-500">
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
 {% endblock content %}
