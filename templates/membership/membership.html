@@ -3,7 +3,7 @@
 {% load static %}
 {% block content %}
 
-<div class="text-center">
+<!-- <div class="text-center">
     <h2 class="text-xl md:text-3xl">Please download the <a class="cursor-pointer text-blue-600"
             href="../../static/doc/NATC Membership.docx">membership</a> form, fill the form and
         upload
@@ -18,8 +18,8 @@
             class="mt-5 p-2 pl-4 pr-4 bg-blue-700 hover:bg-blue-400 text-white hover:text-white rounded shadow-xl hover:shadow-2xl transition duration-500"
             type="submit">Upload</button>
     </form>
-</div>
-<!-- <div class="bg-gray-400">
+</div> -->
+<div class="bg-gray-400">
     <div class="m-auto p-10">
       <form action="{% url 'upload_form' %}" method="POST">
         {% csrf_token %}
@@ -145,5 +145,5 @@
         </div>
       </form>
     </div>
-  </div> -->
+  </div>
 {% endblock content %}
