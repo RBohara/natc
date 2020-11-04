@@ -51,7 +51,6 @@ def uploadMembershipForm(request):
             email=email,
             receipt=receipt
         )
-
         membership.save()
 
         messages.success(request, 'Thank you for applying for membership!!!')
