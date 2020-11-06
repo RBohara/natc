@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
 
+{% block title %} Events {% endblock title %}
+
 {% block content %}
-{% block title %} Events {% endblock %}
+
 {% if events %}
-<h2 class="text-center md:text-left text-xl">Upcoming events</h2>
+<h2 class="text-center text-2xl font-bold mt-5 mb-5">Upcoming events</h2>
 <div class="ml-20 md:ml-0 mt-2 md:grid grid-cols-3 gap-2 text-xl md:text-2xl">
 {% for event in events %}
     <div class="p-2 md:p-0">
