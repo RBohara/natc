@@ -6,7 +6,7 @@
 
 {% if events %}
 <h2 class="text-center text-2xl font-bold mt-5 mb-5">Upcoming events</h2>
-<div class="ml-20 md:ml-0 mt-2 md:grid grid-cols-3 gap-2 text-xl md:text-2xl">
+<div class="ml-20 md:ml-0 mt-2 md:grid grid-cols-2 gap-2 text-xl md:text-2xl">
 {% for event in events %}
     <div class="p-2 md:p-4 text-center bg-gray-700 text-gray-400 shadow-xl rounded">
         <h4 class='text-3xl mb-2'>{{ event.event_title }}</h4>
